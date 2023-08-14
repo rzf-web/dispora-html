@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Elements Burger Menu
+  ========================================================================== */
+
+.burger-menu {
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  @include clearfix;
+  &__bar {
+    float: right;
+    width: 28px;
+    height: 2px;
+    display: block;
+    background-color: color(black, 1);
+    margin-bottom: 8px;
+    border-radius: 1px;
+    transform-origin: center center;
+    transition: transform 0.5s ease, width 0.5s ease;
+    transition-delay: 0s;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:nth-child(1) {
+      width: 18px;
+    }
+    &:nth-child(2) {
+      transform-origin: left center;
+      transition-delay: 0.25s;
+    }
+    &:nth-child(3) {
+      width: 22px;
+    }
+    .show-search &,
+    .show-menu & {
+      // background-color: color(primary);
+      &:nth-child(1) {
+        width: 24px;
+        transform: rotate(135deg) translate(35%, -275%);
+        transition-delay: 0.25s;
+      }
+      &:nth-child(2) {
+        transform: scaleX(0);
+        transition-delay: 0s;
+        transform-origin: right center;
+      }
+      &:nth-child(3) {
+        width: 24px;
+        transform: rotate(-135deg) translate(35%, 275%);
+        transition-delay: 0.25s;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Grid System
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: $mw-container;
+  margin-left: auto;
+  margin-right: auto;
+  @include large {
+    max-width: initial;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include small {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @include x-small {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.main-site {
+  padding-top: 96px;
+  transition: all 0.3s ease;
+  @include large {
+    padding-top: 88px;
+  }
+  @include medium {
+    padding-top: 80px;
+  }
+  @include x-small {
+    padding-top: 64px;
+  }
+  &--user,
+  &--admin {
+    padding-top: 80px;
+    @include medium {
+      padding-top: 72px;
+    }
+    @include x-small {
+      padding-top: 64px;
+    }
+  }
+  &--auth {
+    padding-top: 0 !important;
+  }
+  // &--admin {
+  //   @include container-fluid;
+  //   + .footer {
+  //     @include container-fluid;
+  //   }
+  // }
+}

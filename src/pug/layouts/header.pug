@@ -1,0 +1,72 @@
+//-------------------------------------------------------------------------------
+  @name: Header
+  -------------------------------------------------------------------------------//
+
+-
+  header = {
+    logo: {
+      img: 'dispora.png',
+      text: 'Dispora Jabar'
+    },
+    nav: [
+      {
+        to: 'profile.html',
+        text: 'Profil'
+      },
+      {
+        to: 'program.html',
+        text: 'Program'
+      },
+      {
+        to: 'berita.html',
+        text: 'Berita'
+      },
+      {
+        to: 'ppid.html',
+        text: 'PPID'
+      },
+    ],
+  };
+
+//header
+.header
+  .container
+    .header__inner
+      .header__search
+        .header__search__bg
+        .header__search__box
+          form.header__search__form
+            ='\n'
+            button(class="header__search__btn" type='button')
+              ='\n'
+              i.dc-search
+            ='\n'
+            input(class="header__search__inp" name="search" id="search" placeholder="Telusuri di sini!")
+            ='\n'
+      .header__left
+        ='\n'
+        a.header__logo(href="index.html")
+          ='\n'
+          img(src="assets/img/logo/"+header.logo.img alt=header.logo.text)/
+        ='\n'
+      .header__right
+        .header__nav
+          ul.header__list
+            each val in header.nav
+              li.header__item
+                ='\n'
+                a.header__link(href=val.to)
+                  | !{val.text}
+        ='\n'
+        button.header__icon.js-show-search
+          ='\n'
+          i(class="dc-search")
+        ='\n'
+        button.burger-menu.js-mobile-menu(type='button')
+          each val in [1, 2, 3]
+            ='\n'
+            span.burger-menu__bar
+          ='\n'
+
+='\n'
+//end-header

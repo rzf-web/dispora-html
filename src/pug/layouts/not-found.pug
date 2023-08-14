@@ -1,0 +1,24 @@
+//-------------------------------------------------------------------------------
+  @name: not-found
+  -------------------------------------------------------------------------------//
+
+// not-found
+.not-found
+  .not-found__inner
+    .container
+      .not-found__img
+        ='\n'
+        img.not-found__img__el(src="assets/img/bg/"+data.img alt="page not found")/
+      .not-found__txt
+        h1.not-found__title
+          | !{data.title}
+        p.not-found__desc
+          | !{data.desc}
+        .not-found__btn
+          ='\n'
+          a.btn.btn--primary(href=data.btn.to)
+            | !{data.btn.text}
+
+
+='\n'
+// end-not-found

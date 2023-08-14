@@ -1,0 +1,22 @@
+/* ------------------------------------------------------------------------------
+@name: Components Index
+@description: Indexing all components
+--------------------------------------------------------------------------------- */
+
+import WindowResize from "./WindowResize";
+import WindowScroll from "./WindowScroll";
+import Header from "./Header";
+import Footer from "./Footer";
+import MainBanner from "./MainBanner";
+import ScrollAnimate from "./ScrollAnimate";
+import Card from "./Card";
+
+export {
+  WindowResize,
+  WindowScroll,
+  Header,
+  Footer,
+  MainBanner,
+  ScrollAnimate,
+  Card,
+};

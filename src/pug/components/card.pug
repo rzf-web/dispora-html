@@ -1,0 +1,39 @@
+//-------------------------------------------------------------------------------
+  @name: Card
+  -------------------------------------------------------------------------------//
+
+// card
+if val.class == 'icon'
+  .card.card--icon
+    .card__box
+      ='\n'
+      a.card__link(href=val.to)
+      .card__icon
+        ='\n'
+        i.card__icon__el(class="ci-"+val.icon)
+      h3.card__title
+        | !{val.title}
+      if val.status
+        ='\n'
+        span.card__status(class="bg-"+val.status)
+else
+  .card.card--primary
+    .card__box
+      .card__head
+        ='\n'
+        a.card__link(href=val.to)
+        h3.card__title
+          | !{val.title}
+        .card__icon
+          ='\n'
+          i.card__icon__el(class="ci-"+val.icon)
+      if val.desc
+        .card__body
+          p.card__desc
+            | !{val.desc}
+          if val.status
+            ='\n'
+            span.card__status(class="bg-"+val.status)
+
+='\n'
+// end-card

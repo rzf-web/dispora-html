@@ -1,0 +1,107 @@
+//-------------------------------------------------------------------------------
+  @name: Footer
+  -------------------------------------------------------------------------------//
+
+-
+  footer = {
+    logo: {
+      img: 'dispora.png',
+      alt: 'DISPORA JABAR',
+    },
+    about: {
+      title: 'Dinas Pemuda dan Olahraga',
+      region: 'Provinsi Jawa Barat',
+      desc: 'Komplek SPORT Jabar Arcamanik Jalan Pacuan Kuda Nomor 140 Arcamanik Jawa Barat, Indonesia'
+    },
+    copyright: 'Copyrights © 2023 All Rights Reserved, Dinas Pemuda & Olahraga Provinsi Jawa Barat.',
+    nav: [
+      {
+        title: 'Tentang Kami',
+        list: [
+          {
+            to: 'profile.html',
+            text: 'Sejarah'
+          },
+          {
+            to: 'profile.html',
+            text: 'Visi & Misi'
+          },
+          {
+            to: 'profile.html',
+            text: 'Stuktur Organisasi'
+          },
+          {
+            to: 'profile.html',
+            text: 'Tupoksi'
+          },
+        ]
+      },
+      {
+        title: 'Kontak Kami :',
+        list: [
+          {
+            icon: 'whatsapp',
+            text: '(022) 8788 4268'
+          },
+          {
+            icon: 'whatsapp',
+            text: '(022) 8788 1419'
+          },
+          {
+            icon: 'mail',
+            text: 'disorda@jabarprov.go.id',
+            email: 'dispora.jabar@gmail.com'
+          },
+        ]
+      },
+    ],
+  };
+
+//footer
+.footer
+  .container
+    .footer__top
+      .footer__about
+        ='\n'
+        a.footer__logo(href="index.html")
+          ='\n'
+          img(src='assets/img/logo/'+footer.logo.img alt=footer.logo.alt)/
+        .footer__txt
+          h3.footer__title
+            | !{footer.about.title}
+            span
+              | !{footer.about.region}
+          p.footer__desc
+            | !{footer.about.desc}
+      .footer__nav
+        each val in footer.nav
+          .footer__item
+            h3.footer__title
+              | !{val.title}
+            if val.list
+              ul.footer__menu
+                each valItem in val.list
+                  li.footer__menu__item
+                    ='\n'
+                    a.footer__menu__link(href=valItem.to)
+                      if valItem.icon
+                        ='\n'
+                        i(class="dc-"+valItem.icon)
+                        ='\n'
+                        span !{valItem.text}
+                        if valItem.email
+                          br
+                          ='\n'
+                          span !{valItem.email}
+                      else
+                        | !{valItem.text}
+            else
+              p.footer__desc
+                | !{val.desc}
+    .footer__bottom
+      p.footer__copyright
+        | !{footer.copyright}
+
+
+='\n'
+//end-footer
