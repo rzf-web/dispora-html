@@ -11,19 +11,62 @@
     nav: [
       {
         to: 'profile.html',
-        text: 'Profil'
+        text: 'Profil',
+        classActive: 'profile',
+        dropdown: [
+          {
+            to: 'history.html',
+            text: 'Sejarah',
+            classActive: 'history',
+          },
+          {
+            to: 'vision-mission.html',
+            text: 'Visi & Misi',
+            classActive: 'vision-mission',
+          },
+          {
+            to: 'tupoksi.html',
+            text: 'Tupoksi',
+            classActive: 'tupoksi',
+          },
+          {
+            to: 'organization.html',
+            text: 'Stuktur Organisasi',
+            classActive: 'organization',
+          },
+          {
+            to: 'official.html',
+            text: 'Stuktural Pejabat',
+            classActive: 'official',
+          },
+        ]
       },
       {
         to: 'program.html',
-        text: 'Program'
+        text: 'Program',
+        classActive: 'program',
       },
       {
-        to: 'berita.html',
-        text: 'Berita'
+        to: 'news.html',
+        text: 'Berita',
+        classActive: 'news',
+        dropdown: [
+          {
+            to: 'media.html',
+            text: 'Media',
+            classActive: 'media',
+          },
+          {
+            to: 'news.html',
+            text: 'Berita',
+            classActive: 'news',
+          },
+        ]
       },
       {
         to: 'ppid.html',
-        text: 'PPID'
+        text: 'PPID',
+        classActive: 'ppid',
       },
     ],
   };
@@ -53,10 +96,20 @@
         .header__nav
           ul.header__list
             each val in header.nav
-              li.header__item
+              li.header__item(class=(val.dropdown ? 'header__dropdown' : ''))
                 ='\n'
-                a.header__link(href=val.to)
+                a.header__link(href=val.to class=(siteActive === val.classActive ? 'header__menu__link--active' : ''))
                   | !{val.text}
+                ='\n'
+                if val.dropdown
+                  .header__dropdown__menu
+                    ul.header__dropdown__list
+                      each valItem, idx in val.dropdown
+                        li.header__dropdown__item
+                          ='\n'
+                          a.header__dropdown__link(href=valItem.to class=(siteActive === valItem.classActive ? 'header__dropdown__link--active' : ''))
+                            | !{valItem.text}
+                        ='\n'
         ='\n'
         button.header__icon.js-show-search
           ='\n'

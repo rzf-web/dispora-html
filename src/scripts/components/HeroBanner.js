@@ -1,13 +1,13 @@
 /* ------------------------------------------------------------------------------
-@name: Main Banner
-@description: Main Banner
+@name: hero Banner
+@description: hero Banner
 --------------------------------------------------------------------------------- */
 
-const MainBanner = (() => {
+const HeroBanner = (() => {
   // handleRunCarousel
   const handleRunCarousel = () => {
-    const _selector = $('.js-main-banner');
-    const _itemLength = $('.js-main-banner .main-banner__item').length;
+    const _selector = $('.js-hero-banner');
+    const _itemLength = $('.js-hero-banner .hero-banner__item').length;
     const _itemRun = 1;
 
     // destroy carousel
@@ -20,28 +20,31 @@ const MainBanner = (() => {
       // --- init carousel
       _selector.addClass('owl-carousel').owlCarousel({
         items: 1,
-        rewind: true,
-        autoplay: true,
-        dots: true,
+        autoplay: false,
+        dots: false,
         nav: true,
-        navText: ["<i class='ci-chevron-left'></i>","<i class='ci-chevron-right'></i>"],
+        navText: ["<i class='dc-chevron-left'></i>","<i class='dc-chevron-right'></i>"],
         loop: false,
         touchDrag: true,
         mouseDrag: false,
-        autoplayHoverPause: true,
         animateOut: 'fadeOut',
-        autoplayTimeout: 5000
+        dotsContainer: '#custom-owl-dots'
       });
     } else {
       if (_selector.hasClass('owl-carousel')) {
         _selector.removeClass('owl-carousel');
       }
+      _selector.addClass('hero-banner--single');
     }
+
+    $('.hero-banner__card__btn').click(function () {
+      $(this).trigger('to.owl.carousel', [$(this).index(), 300]);
+    });
   };
 
   // init
   const init = () => {
-    if ($('.js-main-banner').length) {
+    if ($('.js-hero-banner').length) {
       handleRunCarousel();
     }
   };
@@ -52,4 +55,4 @@ const MainBanner = (() => {
   };
 })();
 
-export default MainBanner;
+export default HeroBanner;

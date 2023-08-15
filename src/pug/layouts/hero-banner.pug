@@ -1,0 +1,39 @@
+//-------------------------------------------------------------------------------
+  @name: Hero Banner
+  -------------------------------------------------------------------------------//
+
+// hero-banner
+.hero-banner
+  .container
+    .hero-banner__inner
+      .hero-banner__slider.js-hero-banner
+        each val in heroBanner
+          .hero-banner__item
+            .hero-banner__img
+              ='\n'
+              img.hero-banner__img__el(src="assets/img/dummy/"+val.img alt=val.title)/
+            .hero-banner__txt
+              p.hero-banner__tag
+                | Berita Terkini
+              h2.hero-banner__title
+                | !{val.title}
+              p.hero-banner__desc
+                | !{val.desc}
+              p.hero-banner__date
+                | !{val.date}
+      .hero-banner__list(id="custom-owl-dots")
+        each val in heroBanner
+          .hero-banner__card
+            button.hero-banner__card__btn(type="button")
+            .hero-banner__card__img
+              ='\n'
+              img.hero-banner__card__img__el(src="assets/img/dummy/"+val.img alt=val.title)/
+            .hero-banner__card__txt
+              p.hero-banner__card__date
+                | !{val.date}
+              h3.hero-banner__card__title
+                | !{val.title}
+
+
+
+

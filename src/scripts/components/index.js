@@ -7,7 +7,7 @@ import WindowResize from "./WindowResize";
 import WindowScroll from "./WindowScroll";
 import Header from "./Header";
 import Footer from "./Footer";
-import MainBanner from "./MainBanner";
+import HeroBanner from "./HeroBanner";
 import ScrollAnimate from "./ScrollAnimate";
 import Card from "./Card";
 
@@ -16,7 +16,7 @@ export {
   WindowScroll,
   Header,
   Footer,
-  MainBanner,
+  HeroBanner,
   ScrollAnimate,
   Card,
 };

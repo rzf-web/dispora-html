@@ -11,7 +11,15 @@ Layout: Header
   width: 100%;
   background-color: color(white);
   padding: 24px 0;
-  @include shadow(0);
+  transition: transform 0.35s ease;
+  .scroll-down & {
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+  }
+  .header-on-scroll & {
+    @include shadow(0);
+    transition: transform 0.5s ease;
+  }
   &__inner {
     position: relative;
     @include clearfix;
@@ -33,7 +41,6 @@ Layout: Header
   }
   &__nav {
     float: left;
-    margin: 8px 0;
   }
   &__list {
     list-style: none;
@@ -51,6 +58,7 @@ Layout: Header
     font-weight: fw(500);
     text-decoration: none;
     @include font-size(16);
+    padding: 8px 0;
     transition: all .3s ease;
     &:hover {
       color: color(primary);
@@ -183,6 +191,140 @@ Layout: Header
       background-color: transparent;
       @include font-size(24);
       line-height: 1;
+    }
+  }
+  &__dropdown {
+    $hd: &;
+    position: relative;
+    @include small {
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 32px;
+        width: 12px;
+        height: 2px;
+        z-index: zi(header-dropdown-before);
+        background-color: color(black, 1);
+        transition: all 0.4s ease 0.2s;
+      }
+      &::before {
+        right: 12px;
+        border-radius: 0.5px 0 0 0.5px;
+        transform-origin: 100% 100%;
+        transform: rotate(45deg) scaleY(1.1);
+      }
+      &::after {
+        right: 0;
+        border-radius: 0 0.5px 0.5px 0;
+        transform-origin: 0% 100%;
+        transform: rotate(-45deg) scaleY(1.1);
+      }
+    }
+    &:hover {
+      #{$hd} {
+        &__menu {
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+        }
+      }
+    }
+    &__menu {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: zi(header-dropdown-menu);
+      padding: 16px 0 0;
+      margin: 0;
+      background-color: color(white);
+      min-width: 200px;
+      max-height: 240px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      max-width: 100%;
+      @include radius(0);
+      @include shadow(0);
+      @include scroll("y");
+      transition: all 0.25s ease 0.1s;
+      @include large {
+        display: none;
+        position: static;
+        min-width: 100%;
+        max-height: initial;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        overflow: hidden;
+        box-shadow: none;
+        margin: 0;
+        padding: 0 0 8px;
+        transition: none;
+      }
+      @include small {
+        padding: 8px 0;
+      }
+    }
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      @include large {
+        opacity: 0;
+        transform: translateX(8px);
+        transition: all 0.3s ease 0s;
+      }
+    }
+    &__item {
+      position: relative;
+      margin-bottom: 4px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &__link {
+      display: block;
+      text-decoration: none;
+      font-family: ff(title);
+      @include font-size(14);
+      font-weight: fw(500);
+      padding: 8px 16px;
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease;
+      @include remove-tap-highlight;
+      @include small {
+        padding: 8px;
+        border-bottom: 1px solid color(grey, 1);
+      }
+      &--active,
+      &:hover {
+        background-color: color(primary);
+        color: color(white);
+      }
+    }
+    &--show {
+      @include small {
+        &::before {
+          top: 24px;
+          transform-origin: 100% 0%;
+          transform: rotate(-45deg) scaleY(1.1);
+        }
+        &::after {
+          top: 24px;
+          transform-origin: 0% 0%;
+          transform: rotate(45deg) scaleY(1.1);
+        }
+      }
+      #{$hd} {
+        &__list {
+          opacity: 1;
+          transform: none;
+          transition-delay: 0.4s;
+        }
+      }
     }
   }
   .burger-menu {

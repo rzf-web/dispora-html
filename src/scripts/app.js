@@ -7,7 +7,7 @@ import {
   WindowResize,
   Header,
   Footer,
-  MainBanner,
+  HeroBanner,
   ScrollAnimate,
   Card,
 } from "components";
@@ -44,7 +44,7 @@ const App = (() => {
       WindowResize.init();
       Header.init();
       Footer.init();
-      MainBanner.init();
+      HeroBanner.init();
       ScrollAnimate.init();
       Card.init();
     })(jQuery);
