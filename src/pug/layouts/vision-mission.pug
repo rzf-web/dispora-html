@@ -1,0 +1,21 @@
+//-------------------------------------------------------------------------------
+  @name: Vision - Mission
+  -------------------------------------------------------------------------------//
+
+// vision-mission
+.vision-mission(class=(data.modifier !== undefined ? 'vision-mission--reverse' : ''))
+  .container
+    .vision-mission__wrapper
+      .vision-mission__img
+        ='\n'
+        img.vision-mission__img__el(src="assets/img/bg/"+data.img alt=data.title)/
+      .vision-mission__txt
+        .vision-mission__txt__wrapper
+          h3.text-title
+            | !{data.title}
+            span.text-title__bar
+          p.vision-mission__desc
+            | !{data.desc}
+          ='\n'
+='\n'
+// end-vision-mission

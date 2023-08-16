@@ -1,0 +1,19 @@
+extends ../templates/default.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Pejabat Struktural';
+    siteActive = 'official';
+    headerClass = 'white';
+
+//- Body
+block siteContent
+
+  //- title-page
+  include ../layouts/title-page.pug
+  ='\n'
+
+  //- official
+  include official/official.pug
+  ='\n'

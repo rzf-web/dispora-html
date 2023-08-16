@@ -9,7 +9,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import HeroBanner from "./HeroBanner";
 import ScrollAnimate from "./ScrollAnimate";
-import Card from "./Card";
+import Official from "./Official";
 
 export {
   WindowResize,
@@ -18,5 +18,5 @@ export {
   Footer,
   HeroBanner,
   ScrollAnimate,
-  Card,
+  Official,
 };

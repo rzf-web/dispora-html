@@ -1,0 +1,19 @@
+extends ../templates/default.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Tupoksi';
+    siteActive = 'tupoksi';
+    headerClass = 'white';
+
+//- Body
+block siteContent
+
+  //- title-page
+  include ../layouts/title-page.pug
+  ='\n'
+
+  //- tupoksi
+  include tupoksi/tupoksi.pug
+  ='\n'

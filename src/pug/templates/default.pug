@@ -137,6 +137,9 @@ html(lang='en')
 
     //- footer
     include ../layouts/footer.pug
+    if siteActive == 'official'
+      //- popup
+      include ../components/popup.pug
     ='\n\n'
     if schema.enable
       // schema organization

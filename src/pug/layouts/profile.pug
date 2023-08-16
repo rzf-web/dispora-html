@@ -1,0 +1,24 @@
+//-------------------------------------------------------------------------------
+  @name: profile
+  -------------------------------------------------------------------------------//
+
+// profile
+.profile
+  .container
+    if data.title
+      .profile__head
+        h2.text-title.text-title--center
+          span.text-title__bar
+          | !{data.title}
+          span.text-title__bar
+    if data.list
+      .profile__list
+        each val in data.list
+          - data = val;
+          include ../components/card.pug
+    else
+      .profile__body
+        | !{data.content}
+
+='\n'
+// end-profile

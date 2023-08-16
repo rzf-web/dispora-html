@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Layouts Vision Mission
+   ========================================================================== */
+
+.vision-mission {
+  $vm: &;
+  position: relative;
+  overflow: hidden;
+  padding: 104px 0 52px;
+  @include large {
+    padding: 88px 0 44px;
+  }
+  @include medium {
+    padding: 72px 0 36px;
+  }
+  @include small {
+    padding: 56px 0 28px;
+  }
+  &__wrapper {
+    width: 886px;
+    margin: 0 auto;
+    @include clearfix;
+    position: relative;
+    z-index: zi(overview-wrapper);
+  }
+  &__img {
+    position: relative;
+    float: left;
+    width: 320px;
+    height: 240px;
+    &__el {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__txt {
+    float: right;
+    width: 50%;
+    min-height: 232px;
+    display: table;
+    @include small {
+      float: none;
+      width: 100%;
+      display: block;
+      min-height: initial;
+    }
+    &__wrapper {
+      width: 100%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .text-title {
+    margin-bottom: 32px;
+  }
+  &__desc {
+    margin-bottom: 0;
+  }
+  &--reverse {
+    padding: 52px 0 104px;
+    @include large {
+      padding: 44px 0 88px;
+    }
+    @include medium {
+      padding: 36px 0 72px;
+    }
+    @include small {
+      padding: 28px 0 56px;
+    }
+    #{$vm} {
+      &__img {
+        float: right;
+      }
+      &__txt {
+        float: left;
+        padding-left: 24px;
+      }
+    }
+  }
+}

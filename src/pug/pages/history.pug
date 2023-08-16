@@ -1,0 +1,19 @@
+extends ../templates/default.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Sejarah';
+    siteActive = 'history';
+    headerClass = 'white';
+
+//- Body
+block siteContent
+
+  //- title-page
+  include ../layouts/title-page.pug
+  ='\n'
+
+  //- history
+  include history/history.pug
+  ='\n'

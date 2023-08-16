@@ -23,34 +23,21 @@
 }
 
 .main-site {
-  padding-top: 96px;
+  padding-top: 88px;
   transition: all 0.3s ease;
+  transition-delay: 0.1s;
   @include large {
-    padding-top: 88px;
+    padding-top: 80px;
   }
   @include medium {
-    padding-top: 80px;
+    padding-top: 72px;
   }
   @include x-small {
     padding-top: 64px;
   }
-  &--user,
-  &--admin {
-    padding-top: 80px;
-    @include medium {
-      padding-top: 72px;
-    }
-    @include x-small {
-      padding-top: 64px;
-    }
+  .show-popup & {
+    transform: scale(0.95) translateY(-80px);
+    transition: all 0.45s ease;
+    transition-delay: 0s;
   }
-  &--auth {
-    padding-top: 0 !important;
-  }
-  // &--admin {
-  //   @include container-fluid;
-  //   + .footer {
-  //     @include container-fluid;
-  //   }
-  // }
 }

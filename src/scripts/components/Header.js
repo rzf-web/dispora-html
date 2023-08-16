@@ -11,7 +11,6 @@ const Header = (() => {
   // --- handle mobile menu
   const handleMobileMenu = () => {
     $(".js-mobile-menu").on("click", (e) => {
-      const _this = $(e.currentTarget);
       if ($("body").hasClass("show-menu")) {
         Scrolllable.enable();
         $("body").removeClass("show-menu");
@@ -61,9 +60,13 @@ const Header = (() => {
   const handleShowSearch = () => {
     $(".js-show-search").on("click", (e) => {
       if ($("body").hasClass("show-search")) {
+        setTimeout(() => {
+          $('.header').removeAttr('style');
+        }, 500);
         Scrolllable.enable();
         $("body").removeClass("show-search");
       } else {
+        $('.header').css('transition', '0s');
         Scrolllable.disable();
         $("body").addClass("show-search");
         if ($(".dropdown").hasClass("show")) {

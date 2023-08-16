@@ -9,7 +9,7 @@ import {
   Footer,
   HeroBanner,
   ScrollAnimate,
-  Card,
+  Official,
 } from "components";
 
 // --- App
@@ -46,7 +46,7 @@ const App = (() => {
       Footer.init();
       HeroBanner.init();
       ScrollAnimate.init();
-      Card.init();
+      Official.init();
     })(jQuery);
   };
 

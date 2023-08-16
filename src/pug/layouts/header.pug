@@ -71,8 +71,9 @@
     ],
   };
 
+//- headerClass: default (primary) | primary | secondary | white
 //header
-.header
+.header(class="header--"+(headerClass ? headerClass : 'primary'))
   .container
     .header__inner
       .header__search

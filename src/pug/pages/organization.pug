@@ -1,0 +1,19 @@
+extends ../templates/default.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Struktur Organisasi';
+    siteActive = 'organization';
+    headerClass = 'white';
+
+//- Body
+block siteContent
+
+  //- title-page
+  include ../layouts/title-page.pug
+  ='\n'
+
+  //- organization
+  include organization/organization.pug
+  ='\n'

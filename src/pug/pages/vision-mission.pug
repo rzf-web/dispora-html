@@ -1,0 +1,23 @@
+extends ../templates/default.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Vision Mission';
+    siteActive = 'vision-mission';
+    headerClass = 'white';
+
+//- Body
+block siteContent
+
+  //- title-page
+  include ../layouts/title-page.pug
+  ='\n'
+
+  //- vision
+  include vision-mission/vision.pug
+  ='\n'
+
+  //- mission
+  include vision-mission/mission.pug
+  ='\n'

@@ -7,8 +7,6 @@
 import {
   Header,
   Footer,
-  HeroBanner,
-  Card,
 } from 'components';
 
 // --- WindowResize
@@ -40,8 +38,6 @@ const WindowResize = (() => {
       Header.destroySearch();
       Header.destroyHeaderDropdown();
       Footer.footerSticky();
-      // HeroBanner.destroyCarousel();
-      Card.checkHeight();
       $('body').removeClass('hold-transition');
     }
   };

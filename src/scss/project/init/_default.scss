@@ -23,32 +23,32 @@ body {
 
 h1 {
   @include font-size(40);
-  font-weight: fw(600);
+  font-weight: fw(700);
 }
 
 h2 {
   @include font-size(32);
-  font-weight: fw(600);
+  font-weight: fw(700);
 }
 
 h3 {
   @include font-size(24);
-  font-weight: fw(600);
+  font-weight: fw(700);
 }
 
 h4 {
   @include font-size(20);
-  font-weight: fw(600);
+  font-weight: fw(700);
 }
 
 h5 {
   @include font-size(18);
-  font-weight: fw(600);
+  font-weight: fw(700);
 }
 
 h6 {
   @include font-size(16);
-  font-weight: fw(600);
+  font-weight: fw(700);
 }
 
 p,

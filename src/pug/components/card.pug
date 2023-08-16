@@ -3,37 +3,18 @@
   -------------------------------------------------------------------------------//
 
 // card
-if val.class == 'icon'
-  .card.card--icon
-    .card__box
+.card
+  .card__box
+    ='\n'
+    button.card__link(type="button" class="js-show-popup" data-photo="assets/img/dummy/jabar-logo.png" data-name=data.name data-position=data.position data-content=data.content)
+    .card__img
       ='\n'
-      a.card__link(href=val.to)
-      .card__icon
-        ='\n'
-        i.card__icon__el(class="ci-"+val.icon)
-      h3.card__title
-        | !{val.title}
-      if val.status
-        ='\n'
-        span.card__status(class="bg-"+val.status)
-else
-  .card.card--primary
-    .card__box
-      .card__head
-        ='\n'
-        a.card__link(href=val.to)
-        h3.card__title
-          | !{val.title}
-        .card__icon
-          ='\n'
-          i.card__icon__el(class="ci-"+val.icon)
-      if val.desc
-        .card__body
-          p.card__desc
-            | !{val.desc}
-          if val.status
-            ='\n'
-            span.card__status(class="bg-"+val.status)
+      img.card__img__el(src="assets/img/dummy/jabar-logo.png" alt="jabar")/
+    .card__txt
+      h4.card__name
+        | !{data.name}
+      p.card__position
+        | !{data.position}
 
 ='\n'
 // end-card

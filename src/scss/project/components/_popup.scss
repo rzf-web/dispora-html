@@ -1,0 +1,128 @@
+/* ==========================================================================
+  Components Popup
+  ========================================================================== */
+
+.popup {
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: color(white);
+  transition: all 0.45s cubic-bezier(0.57, 0.07, 0.27, 0.91);
+  transform: translateY(100%);
+  @include scroll('y', 'touch', 'show');
+  .show-popup & {
+    transform: none;
+  }
+  &__close {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-color: color(black, 2);
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    border-radius: 50%;
+    z-index: 10;
+    color: color(white);
+    cursor: pointer;
+    @include remove-tap-highlight;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all .45s ease;
+    i {
+      display: block;
+      @include font-size(16);
+      transition: all .35s ease;
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+    .show-popup & {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.7s;
+    }
+  }
+  &__wrapper {
+    position: relative;
+    padding: 80px 0;
+  }
+  &__content {
+    position: relative;
+    z-index: 8;
+    @include clearfix;
+  }
+  &__left {
+    float: left;
+    width: 33.33333%;
+  }
+  &__right {
+    float: right;
+    width: 66.66666%;
+    padding-left: 40px;
+  }
+  &__head {
+    top: 80px;
+    bottom: 0;
+    position: fixed;
+    max-width: 340px;
+    min-height: 504px;
+    max-height: 592px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all .5s ease;
+    .show-popup & {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.55s;
+    }
+  }
+  &__body {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all .5s ease;
+    h1, h2, h3, h4, h5, h6 {
+      font-family: ff(title);
+    }
+    .show-popup & {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.65s;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    &__el {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  &__txt {
+    padding: 16px 32px;
+    border-radius: 8px;
+    background-color: color(black, 2);
+    color: color(white);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 8;
+  }
+  &__name {
+    @include font-size(20);
+    margin-bottom: 0;
+  }
+  &__position {
+    @include font-size(16);
+    margin-bottom: 0;
+  }
+
+}

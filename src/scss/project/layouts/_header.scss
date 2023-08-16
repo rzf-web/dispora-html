@@ -11,14 +11,13 @@ Layout: Header
   width: 100%;
   background-color: color(white);
   padding: 24px 0;
-  transition: transform 0.35s ease;
+  transition: all 0.5s ease;
   .scroll-down & {
     transform: translateY(-100%);
-    transition: transform 0.5s ease;
   }
   .header-on-scroll & {
     @include shadow(0);
-    transition: transform 0.5s ease;
+    background-color: color(white);
   }
   &__inner {
     position: relative;
@@ -236,8 +235,8 @@ Layout: Header
       left: 0;
       right: 0;
       z-index: zi(header-dropdown-menu);
-      padding: 16px 0 0;
-      margin: 0;
+      margin: 16px 0 0;
+      padding: 0;
       background-color: color(white);
       min-width: 200px;
       max-height: 240px;
@@ -279,10 +278,7 @@ Layout: Header
     }
     &__item {
       position: relative;
-      margin-bottom: 4px;
-      &:last-child {
-        margin-bottom: 0;
-      }
+      margin-bottom: 0;
     }
     &__link {
       display: block;
@@ -329,5 +325,52 @@ Layout: Header
   }
   .burger-menu {
     display: none;
+  }
+  &--white {
+    background-color: transparent;
+    #{$h} {
+      &__link {
+        color: color(white);
+        &:hover {
+          color: color(tertiary);
+        }
+        .header-on-scroll &,
+        .show-search & {
+          color: color(black, 1);
+          &:hover {
+            color: color(primary);
+          }
+        }
+      }
+      &__icon {
+        color: color(white);
+        &:hover {
+          color: color(tertiary);
+        }
+        .header-on-scroll &,
+        .show-search & {
+          color: color(black, 1);
+          &:hover {
+            color: color(primary);
+          }
+        }
+      }
+      &__dropdown {
+        &__link {
+          &--active,
+          &:hover {
+            background-color: color(tertiary);
+            color: color(white);
+            .header-on-scroll &,
+            .show-search & {
+              background-color: color(primary);
+            }
+          }
+        }
+      }
+    }
+    + .main-site {
+      padding-top: 0;
+    }
   }
 }

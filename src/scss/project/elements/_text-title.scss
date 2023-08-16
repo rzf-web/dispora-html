@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Elements Text Title
+   ========================================================================== */
+
+.text-title {
+  $t: &;
+  font-family: ff(title);
+  position: relative;
+  display: inline-block;
+  @include font-size(32);
+  margin-bottom: 0;
+  &__bar {
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    left: 24px;
+    width: 24px;
+    height: 2px;
+    background-color: color(primary);
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -24px;
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: color(secondary);
+      border-radius: 8px 0 0 8px;
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 24px;
+      width: 24px;
+      height: 2px;
+      background-color: color(tertiary);
+      border-radius: 0 8px 8px 0;
+    }
+  }
+  &--center {
+    #{$t} {
+      &__bar {
+        top: 50%;
+        left: -72px;
+        transform: translateY(-50%);
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &:last-child {
+          left: auto;
+          right: -72px;
+          &::before {
+            left: auto;
+            right: -24px;
+            border-radius: 0 8px 8px 0;
+          }
+          &::after {
+            left: auto;
+            right: 24px;
+            border-radius: 8px 0 0 8px;
+          }
+        }
+      }
+    }
+  }
+}
