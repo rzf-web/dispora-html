@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------
+  @name: gallery
+  -------------------------------------------------------------------------------//
+
+// gallery
+.gallery
+  .container
+    .gallery__head
+      h2.text-title.text-title--center
+        span.text-title__bar
+        | !{gallery.title}
+        span.text-title__bar
+    .gallery__body.js-gallery-slider
+      each val in gallery.list
+        - data = val;
+        include ../components/gallery-card.pug
+
+='\n'
+// end-gallery

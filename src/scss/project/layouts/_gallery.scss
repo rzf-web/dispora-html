@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Layouts Gallery
+   ========================================================================== */
+
+.gallery {
+  $g: &;
+  padding: 64px 0 52px;
+  &__head {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  &__body {
+    font-size: 0;
+    margin-left: -12px;
+    margin-right: -12px;
+    @include scroll('x');
+    #{$g} {
+      &-card {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        padding: 12px;
+      }
+    }
+    &.owl-carousel {
+      margin: 0;
+      overflow: visible;
+      .owl-item {
+        .gallery-card {
+          width: 100%;
+        }
+      }
+      .owl-nav {
+        .owl-prev,
+        .owl-next {
+          position: absolute;
+          top: 50%;
+          @include font-size(48);
+          color: color(primary);
+          transition: all .3s ease;
+        }
+        .owl-prev {
+          left: -56px;
+          &.disabled {
+            opacity: 0;
+            transform: translateX(-16px);
+          }
+        }
+        .owl-next {
+          right: -56px;
+          &.disabled {
+            opacity: 0;
+            transform: translateX(16px);
+          }
+        }
+      }
+    }
+  }
+}

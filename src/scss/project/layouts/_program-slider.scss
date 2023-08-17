@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Layouts Program Slider
+   ========================================================================== */
+
+.program-slider {
+  width: 100%;
+  height: 300px;
+  padding: 56px 0;
+  background-color: color(grey, 1);
+  &__container {
+    position: absolute;
+    left: calc(50% - 560px);
+    right: 0;
+    z-index: 2;
+  }
+  &__content {
+    position: relative;
+  }
+  &__head {
+    margin-bottom: 56px;
+    @include clearfix;
+    .text-title {
+      float: left;
+    }
+    .btn-text {
+      margin: 4px 0;
+      float: right;
+    }
+  }
+  &__body {
+    font-size: 0;
+    @include small {
+      display: block;
+      width: auto;
+      border-radius: 0;
+      margin-left: -24px;
+      padding-left: 24px;
+      @include scroll('x', 'touch', 'hide');
+    }
+    &.owl-carousel {
+      .owl-stage {
+        position: static;
+      }
+      .owl-item {
+        .program-card {
+          margin-right: 56px;
+        }
+      }
+    }
+    .program-card {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 56px;
+      max-width: 280px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

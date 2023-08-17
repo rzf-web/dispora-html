@@ -1,0 +1,23 @@
+//-------------------------------------------------------------------------------
+  @name: program-slider
+  -------------------------------------------------------------------------------//
+
+// program-slider
+.program-slider
+  .container
+    .program-slider__head
+      h3.text-title
+        | !{program.title}
+        span.text-title__bar
+      a.btn-text(href="program.html")
+        span Lihat Semua
+        i.dc-arrow-right
+    .program-slider__container
+      .program-slider__content
+        .program-slider__body.js-program-slider
+          each val in program.list
+            - data = val;
+            include ../components/program-card.pug
+
+='\n'
+// end-program-slider

@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Components Program Card
+   ========================================================================== */
+
+.program-card {
+  $c: &;
+  &__box {
+    position: relative;
+    overflow: hidden;
+    height: 48px;
+  }
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: zi(card-link);
+    @include remove-tap-highlight;
+  }
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain
+  }
+}

@@ -1,0 +1,90 @@
+/* ==========================================================================
+  Components Gallery Card
+  ========================================================================== */
+
+.gallery-card {
+  $gc: &;
+  &__box {
+    position: relative;
+    overflow: hidden;
+    @include radius(1);
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: zi(card-overlay-before);
+      width: 100%;
+      height: 100%;
+      background: color(gradient, 2);
+      transition: all .3s ease;
+    }
+    &:hover {
+      #{$gc} {
+        &__img__el {
+          transform: scale(1.1);
+        }
+        &__title {
+          color: color(primary);
+        }
+      }
+    }
+  }
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: zi(card-link);
+    @include remove-tap-highlight;
+  }
+  &__img {
+    padding-bottom: 88%;
+    position: relative;
+    overflow: hidden;
+    @include radius(1);
+    margin-bottom: 0;
+    &__el {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: all 0.3s ease;
+    }
+  }
+  &__txt {
+    white-space: normal;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: zi(card-overlay-txt);
+    padding: 32px;
+  }
+  &__title {
+    font-family: ff(title);
+    @include font-size(20);
+    color: color(white);
+    margin-bottom: 0;
+    transition: all .3s ease;
+  }
+  &__badge {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    z-index: 2;
+    display: block;
+    @include radius(1);
+    font-family: ff(title);
+    @include font-size(16);
+    font-weight: fw(700);
+    color: color(white);
+    padding: 6px 12px;
+    background-color: color(secondary);
+  }
+}

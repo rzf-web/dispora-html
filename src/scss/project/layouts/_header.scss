@@ -54,11 +54,12 @@ Layout: Header
   &__link {
     display: block;
     font-family: ff(title);
-    font-weight: fw(500);
+    font-weight: fw(600);
     text-decoration: none;
     @include font-size(16);
     padding: 8px 0;
     transition: all .3s ease;
+    &--active,
     &:hover {
       color: color(primary);
     }

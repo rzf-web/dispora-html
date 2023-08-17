@@ -17,6 +17,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dc-arrow-up:before {
+  content: "\e900";
+}
+.dc-arrow-right:before {
+  content: "\e902";
+}
+.dc-arrow-left:before {
+  content: "\e903";
+}
+.dc-arrow-down:before {
+  content: "\e904";
+}
 .dc-close:before {
   content: "\e911";
 }

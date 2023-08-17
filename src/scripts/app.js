@@ -10,6 +10,8 @@ import {
   HeroBanner,
   ScrollAnimate,
   Official,
+  Program,
+  Gallery,
 } from "components";
 
 // --- App
@@ -47,6 +49,8 @@ const App = (() => {
       HeroBanner.init();
       ScrollAnimate.init();
       Official.init();
+      Program.init();
+      Gallery.init();
     })(jQuery);
   };
 
