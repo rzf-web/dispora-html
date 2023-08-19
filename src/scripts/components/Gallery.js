@@ -29,8 +29,8 @@ const Gallery = (() => {
           dots: false,
           nav: true,
           navText: [
-            "<i class='dc-chevron-left'></i>",
-            "<i class='dc-chevron-right'></i>"
+            "<i class='dc-play-left'></i>",
+            "<i class='dc-play-right'></i>"
           ],
           smartSpeed: 1500,
         });

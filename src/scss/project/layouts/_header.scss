@@ -12,6 +12,9 @@ Layout: Header
   background-color: color(white);
   padding: 24px 0;
   transition: all 0.5s ease;
+  @include medium {
+    padding: 16px 0;
+  }
   .scroll-down & {
     transform: translateY(-100%);
   }
@@ -21,7 +24,96 @@ Layout: Header
   }
   &__inner {
     position: relative;
+    z-index: 2;
     @include clearfix;
+    &::before {
+      @include medium {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 72px;
+        right: 0;
+        bottom: 0;
+        z-index: zi(header-bg-before);
+        background-color: color(white);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: all 0.5s ease;
+        transition-delay: 0.35s;
+        .show-menu & {
+          transform: scaleY(1);
+          transition-delay: 0.2s;
+        }
+      }
+      @include x-small {
+        top: 64px;
+      }
+    }
+  }
+  &__curtain {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    background-color: color(grey, 3);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: all 0.35s ease 0.4s;
+    @include small {
+      display: none;
+    }
+    .show-search & {
+      @include m-small {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
+      }
+    }
+    .global-nav-show & {
+      @include m-medium {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
+      }
+    }
+  }
+  &__layout {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: zi(header-search-before);
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    background-color: color(white);
+    transform: scaleX(0);
+    transform-origin: top;
+    transform: translateY(-100%);
+    transition: all 0.35s ease .15s;
+    @include small {
+      height: 100%;
+      .show-menu & {
+        transform: translateX(-100%);
+      }
+    }
+    .global-nav-show &,
+    .show-search & {
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0.2s;
+    }
   }
   &__left {
     float: left;
@@ -33,13 +125,44 @@ Layout: Header
   &__logo {
     display: block;
     text-decoration: none;
+    @include remove-tap-highlight;
     img {
       display: block;
       height: 40px;
+      @include small {
+        height: 32px;
+      }
     }
   }
   &__nav {
     float: left;
+    @include medium {
+      @include scroll("y", "touch", "show");
+      position: fixed;
+      top: 72px;
+      right: 0;
+      bottom: 0;
+      z-index: zi(header-menu);
+      display: block;
+      width: 100%;
+      padding: 32px;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease;
+      transform: translateY(16px);
+      .show-menu & {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.55s;
+        transform: translateY(0);
+      }
+    }
+    @include x-small {
+      top: 64px;
+      width: 100%;
+      padding: 12px;
+    }
   }
   &__list {
     list-style: none;
@@ -49,16 +172,33 @@ Layout: Header
   }
   &__item {
     float: left;
-    margin-right: 40px;
+    margin-right: 24px;
+    @include medium {
+      float: none;
+      display: block;
+      margin-right: 0;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    @include small {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
   }
   &__link {
     display: block;
     font-family: ff(title);
-    font-weight: fw(600);
+    font-weight: fw(500);
     text-decoration: none;
     @include font-size(16);
-    padding: 8px 0;
+    padding: 8px;
+    cursor: pointer;
     transition: all .3s ease;
+    @include remove-tap-highlight;
+    @include medium {
+      @include font-size(24);
+      font-weight: fw(600);
+    }
     &--active,
     &:hover {
       color: color(primary);
@@ -68,15 +208,108 @@ Layout: Header
     outline: 0;
     border: 0;
     padding: 0;
-    margin: 6px 0 4px;
+    margin: 6px 0;
+    line-height: 1;
     background-color: transparent;
     transition: all .3s ease;
+    @include medium {
+      margin: 4px 0;
+    }
+    @include small {
+      margin: 3px 0;
+    }
     &:hover {
       color: color(primary);
     }
     i {
       @include font-size(24);
       line-height: 1;
+    }
+  }
+  &__global-nav {
+    $gn: &;
+    &__menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 104px;
+      margin-top: -24px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-16px);
+      transition: all 0.3s ease 0s;
+      @include medium {
+        margin-top: 0;
+        padding-top: 0;
+        height: 100%;
+        z-index: 1;
+        transform: translateX(16px);
+        background-color: color(white);
+        transition: all 0.5s ease .3s;
+      }
+    }
+    &__content {
+      padding: 24px 24px 48px;
+      @include medium {
+        padding: 32px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(16px);
+        transition: all 0.3s ease 0s;
+      }
+      @include small {
+        padding: 16px 24px;
+      }
+    }
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    &__item {
+      margin-bottom: 8px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &__title {
+      font-family: ff(title);
+      @include font-size(16);
+      margin-bottom: 8px;
+    }
+    &__link {
+      display: inline-block;
+      font-family: ff(title);
+      text-decoration: none;
+      @include font-size(24);
+      font-weight: fw(600);
+      padding: 8px 0;
+      @include remove-tap-highlight;
+    }
+    &--show {
+      #{$gn} {
+        &__menu {
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+          transition-delay: .3s;
+          @include medium {
+            transition-delay: 0s;
+          }
+        }
+        &__content {
+          @include medium {
+            transform: none;
+            opacity: 1;
+            visibility: visible;
+            transition-delay: .3s;
+          }
+        }
+      }
     }
   }
   &__search {
@@ -92,60 +325,6 @@ Layout: Header
     .show-search & {
       visibility: visible;
     }
-    &::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: zi(header-search-before);
-      width: 100%;
-      height: 220px;
-      opacity: 0;
-      visibility: hidden;
-      background-color: color(white);
-      transform: scaleX(0);
-      transform-origin: top;
-      transform: translateY(-100%);
-      transition: all 0.5s ease 0.4s;
-      @include medium {
-        height: calc(50% - 48px);
-      }
-      @include small {
-        height: 100%;
-        .show-menu & {
-          transform: translateX(-100%);
-        }
-      }
-      .show-search & {
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        transition-delay: 0.2s;
-      }
-    }
-    &__bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: color(grey, 3);
-      backdrop-filter: blur(20px);
-      opacity: 0;
-      visibility: hidden;
-      transform: scaleY(1);
-      transform-origin: top;
-      transition: all 0.5s ease 0.5s;
-      @include small {
-        display: none;
-      }
-      .show-search & {
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        transition-delay: 0s;
-      }
-    }
     &__box {
       position: relative;
       z-index: zi(header-search-box);
@@ -154,7 +333,7 @@ Layout: Header
       opacity: 0;
       visibility: hidden;
       transform: translateY(-24px);
-      transition: all 0.4s ease 0s;
+      transition: all 0.3s ease 0s;
       @include small {
         display: block;
         .show-menu & {
@@ -165,7 +344,7 @@ Layout: Header
         transform: none;
         opacity: 1;
         visibility: visible;
-        transition-delay: 0.6s;
+        transition-delay: 0.5s;
       }
     }
     &__form {
@@ -196,7 +375,7 @@ Layout: Header
   &__dropdown {
     $hd: &;
     position: relative;
-    @include small {
+    @include medium {
       &::before,
       &::after {
         content: "";
@@ -233,13 +412,11 @@ Layout: Header
     }
     &__menu {
       position: absolute;
-      left: 0;
-      right: 0;
+      left: -72px;
       z-index: zi(header-dropdown-menu);
-      margin: 16px 0 0;
-      padding: 0;
+      margin: 12px 0 0;
       background-color: color(white);
-      min-width: 200px;
+      min-width: 180px;
       max-height: 240px;
       opacity: 0;
       visibility: hidden;
@@ -249,9 +426,10 @@ Layout: Header
       @include shadow(0);
       @include scroll("y");
       transition: all 0.25s ease 0.1s;
-      @include large {
+      @include medium {
         display: none;
         position: static;
+        left: 0;
         min-width: 100%;
         max-height: initial;
         opacity: 1;
@@ -271,7 +449,7 @@ Layout: Header
       list-style: none;
       padding: 0;
       margin: 0;
-      @include large {
+      @include medium {
         opacity: 0;
         transform: translateX(8px);
         transition: all 0.3s ease 0s;
@@ -292,18 +470,23 @@ Layout: Header
       height: 100%;
       transition: all 0.3s ease;
       @include remove-tap-highlight;
-      @include small {
+      @include medium {
         padding: 8px;
         border-bottom: 1px solid color(grey, 1);
+      }
+      @include small {
+        font-weight: fw(600);
+        padding: 12px 8px;
       }
       &--active,
       &:hover {
         background-color: color(primary);
         color: color(white);
+        @include radius(0);
       }
     }
     &--show {
-      @include small {
+      @include medium {
         &::before {
           top: 24px;
           transform-origin: 100% 0%;
@@ -324,9 +507,6 @@ Layout: Header
       }
     }
   }
-  .burger-menu {
-    display: none;
-  }
   &--white {
     background-color: transparent;
     #{$h} {
@@ -335,6 +515,7 @@ Layout: Header
         &:hover {
           color: color(tertiary);
         }
+        .global-nav-show &,
         .header-on-scroll &,
         .show-search & {
           color: color(black, 1);
@@ -348,6 +529,7 @@ Layout: Header
         &:hover {
           color: color(tertiary);
         }
+        .global-nav-show &,
         .header-on-scroll &,
         .show-search & {
           color: color(black, 1);
@@ -370,8 +552,26 @@ Layout: Header
         }
       }
     }
+    .burger-menu {
+      &__bar {
+        background-color: color(white);
+        .global-nav-show &,
+        .header-on-scroll &,
+        .show-search & {
+          background-color: color(black, 1);
+        }
+      }
+    }
     + .main-site {
       padding-top: 0;
+    }
+  }
+  .burger-menu {
+    display: none;
+    @include medium {
+      float: right;
+      display: block;
+      margin-left: 16px;
     }
   }
 }

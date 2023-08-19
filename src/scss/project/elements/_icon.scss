@@ -17,6 +17,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dc-play-right:before {
+  content: "\e905";
+}
+.dc-play-left:before {
+  content: "\e906";
+}
+.dc-phone:before {
+  content: "\e907";
+}
+.dc-mail:before {
+  content: "\e909";
+}
+.dc-fax:before {
+  content: "\e90b";
+}
 .dc-arrow-up:before {
   content: "\e900";
 }
@@ -52,9 +67,6 @@
 }
 .dc-instagram:before {
   content: "\e90d";
-}
-.dc-mail:before {
-  content: "\e90f";
 }
 .dc-twitter:before {
   content: "\e913";

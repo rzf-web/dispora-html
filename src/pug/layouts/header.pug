@@ -10,10 +10,10 @@
     },
     nav: [
       {
-        to: 'profile.html',
         text: 'Profil',
         classActive: 'profile',
-        dropdown: [
+        title: 'Tentang Kami',
+        menu: [
           {
             to: 'history.html',
             text: 'Sejarah',
@@ -47,10 +47,10 @@
         classActive: 'program',
       },
       {
-        to: 'news.html',
         text: 'Berita',
         classActive: 'news',
-        dropdown: [
+        title: 'Berita & Media',
+        menu: [
           {
             to: 'media.html',
             text: 'Media',
@@ -77,7 +77,6 @@
   .container
     .header__inner
       .header__search
-        .header__search__bg
         .header__search__box
           form.header__search__form
             ='\n'
@@ -97,19 +96,22 @@
         .header__nav
           ul.header__list
             each val in header.nav
-              li.header__item(class=(val.dropdown ? 'header__dropdown' : ''))
+              li.header__item(class=(val.menu ? 'header__global-nav' : ''))
                 ='\n'
                 a.header__link(href=val.to class=(siteActive === val.classActive ? 'header__menu__link--active' : ''))
                   | !{val.text}
                 ='\n'
-                if val.dropdown
-                  .header__dropdown__menu
-                    ul.header__dropdown__list
-                      each valItem, idx in val.dropdown
-                        li.header__dropdown__item
-                          ='\n'
-                          a.header__dropdown__link(href=valItem.to class=(siteActive === valItem.classActive ? 'header__dropdown__link--active' : ''))
-                            | !{valItem.text}
+                if val.menu
+                  .header__global-nav__menu
+                    .header__global-nav__content
+                      p.header__global-nav__title
+                        | !{val.title}
+                      ul.header__global-nav__list
+                        each valItem, idx in val.menu
+                          li.header__global-nav__item
+                            ='\n'
+                            a.header__global-nav__link(href=valItem.to class=(siteActive === valItem.classActive ? 'header__global-nav__link--active' : ''))
+                              | !{valItem.text}
                         ='\n'
         ='\n'
         button.header__icon.js-show-search
@@ -121,6 +123,7 @@
             ='\n'
             span.burger-menu__bar
           ='\n'
-
+  .header__curtain
+  .header__layout
 ='\n'
 //end-header

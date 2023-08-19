@@ -36,7 +36,7 @@ const WindowResize = (() => {
       // Run Function on Resize end
       Header.destroyMobileMenu();
       Header.destroySearch();
-      Header.destroyHeaderDropdown();
+      Header.destroyGlobalNavigation();
       Footer.footerSticky();
       $('body').removeClass('hold-transition');
     }

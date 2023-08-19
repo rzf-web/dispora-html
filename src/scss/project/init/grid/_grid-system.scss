@@ -26,9 +26,6 @@
   padding-top: 88px;
   transition: all 0.3s ease;
   transition-delay: 0.1s;
-  @include large {
-    padding-top: 80px;
-  }
   @include medium {
     padding-top: 72px;
   }
