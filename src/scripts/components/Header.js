@@ -70,7 +70,10 @@ const Header = (() => {
   // --- handle show search
   const handleShowSearch = () => {
     $('.js-show-search').on('click', (e) => {
-      const _height = $('.header__search').innerHeight() + 48;
+      let _height = $('.header__search').innerHeight() + 48;
+      if ($(window).width() < 767.98) {
+        _height = $('.header__search').innerHeight() + 32;
+      }
       if ($('body').hasClass('show-search')) {
         Scrolllable.enable();
         $('body').removeClass('show-search');

@@ -14,22 +14,34 @@
   color: color(white);
   @include small {
     position: relative;
-    padding-bottom: 40px;
+    padding: 24px 0 16px;
   }
   &__top {
     padding: 32px 0;
     @include clearfix;
+    @include small {
+      padding: 24px 0;
+    }
   }
   &__about {
     float: left;
     max-width: 616px;
     font-size: 0;
+    @include medium {
+      float: none;
+      margin-bottom: 24px;
+    }
   }
   &__logo {
     display: inline-block;
     vertical-align: top;
     text-decoration: none;
     margin-right: 120px;
+    @include medium {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
     img {
       display: block;
       height: 40px;
@@ -38,27 +50,50 @@
   &__txt {
     display: inline-block;
     vertical-align: top;
+    @include medium {
+      display: block;
+    }
   }
   &__title {
+    position: relative;
+    font-family: ff(title);
     @include font-size(18);
     margin-bottom: 20px;
+    @include x-small {
+      @include font-size(16);
+      margin-bottom: 16px;
+    }
     span {
       display: block;
       font-weight: fw(400);
+      @include x-small {
+        @include font-size(14);
+      }
     }
   }
   &__desc {
+    font-family: ff(title);
     max-width: 280px;
     @include font-size(16);
     margin-bottom: 0;
+    @include x-small {
+      @include font-size(14);
+    }
   }
   &__copyright {
+    font-family: ff(title);
     @include font-size(16);
     margin-bottom: 0;
+    @include x-small {
+      @include font-size(14);
+    }
   }
   &__nav {
     float: right;
     @include clearfix;
+    @include medium {
+      float: none;
+    }
   }
   &__item {
     float: left;
@@ -66,23 +101,98 @@
     &:last-child {
       margin-right: 0;
     }
+    @include small {
+      float: none;
+      width: 100%;
+      display: block;
+      margin-right: 0;
+    }
+    #{$f} {
+      &__title {
+        @include small {
+          &::before,
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 14px;
+            width: 12px;
+            height: 2px;
+            z-index: zi(footer-title);
+            background-color: color(white);
+            transition: all .4s ease .2s;
+          }
+          &::before {
+            right: 12px;
+            border-radius: .5px 0 0 .5px;
+            transform-origin: 100% 100%;
+            transform: rotate(40deg) scaleY(1.1);
+          }
+          &::after {
+            right: 0;
+            border-radius: 0 .5px .5px 0;
+            transform-origin: 0% 100%;
+            transform: rotate(-40deg) scaleY(1.1);
+          }
+        }
+      }
+    }
+    &--show {
+      #{$f} {
+        &__title {
+          &::before {
+            top: 8px;
+            transform-origin: 100% 0%;
+            transform: rotate(-40deg) scaleY(1.1);
+          }
+          &::after {
+            top: 8px;
+            transform-origin: 0% 0%;
+            transform: rotate(40deg) scaleY(1.1);
+          }
+        }
+        &__menu {
+          &__item {
+            opacity: 1;
+            transform: none;
+            transition: all .35s ease .3s;
+          }
+        }
+      }
+    }
   }
   &__menu {
     list-style: none;
     padding: 0;
     margin: 0;
+    @include x-small {
+      display: none;
+      padding-bottom: 24px;
+    }
     &__item {
       margin-bottom: 10px;
       &:last-child {
         margin-bottom: 0;
       }
+      @include small {
+        opacity: 0;
+        transform: translateX(24px);
+        transition: all 0.4s ease 0s;
+      }
     }
     &__link {
+      font-family: ff(title);
       position: relative;
       display: inline-block;
       text-decoration: none;
       @include font-size(16);
       padding-bottom: 6px;
+      @include small {
+        display: block;
+      }
+      @include x-small {
+        @include font-size(14);
+      }
       &::after {
         content: "";
         position: absolute;
@@ -120,5 +230,8 @@
     padding: 32px 0 24px;
     border-top: 1px solid color(tertiary);
     text-align: center;
+    @include small {
+      padding: 24px 0 16px;
+    }
   }
 }

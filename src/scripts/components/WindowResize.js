@@ -38,6 +38,7 @@ const WindowResize = (() => {
       Header.destroySearch();
       Header.destroyGlobalNavigation();
       Footer.footerSticky();
+      Footer.destroyAccordion();
       $('body').removeClass('hold-transition');
     }
   };

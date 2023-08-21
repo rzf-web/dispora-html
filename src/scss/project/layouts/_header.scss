@@ -11,7 +11,7 @@ Layout: Header
   width: 100%;
   background-color: color(white);
   padding: 24px 0;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
   @include medium {
     padding: 16px 0;
   }
@@ -19,8 +19,8 @@ Layout: Header
     transform: translateY(-100%);
   }
   .header-on-scroll & {
-    @include shadow(0);
     background-color: color(white);
+    @include shadow(0);
   }
   &__inner {
     position: relative;
@@ -47,7 +47,7 @@ Layout: Header
           transition-delay: 0.2s;
         }
       }
-      @include x-small {
+      @include small {
         top: 64px;
       }
     }
@@ -67,16 +67,11 @@ Layout: Header
     transform: scaleY(1);
     transform-origin: top;
     transition: all 0.35s ease 0.4s;
-    @include small {
-      display: none;
-    }
     .show-search & {
-      @include m-small {
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        transition-delay: 0s;
-      }
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
     }
     .global-nav-show & {
       @include m-medium {
@@ -121,6 +116,7 @@ Layout: Header
   &__right {
     float: right;
     @include clearfix;
+    line-height: 1;
   }
   &__logo {
     display: block;
@@ -158,7 +154,7 @@ Layout: Header
         transform: translateY(0);
       }
     }
-    @include x-small {
+    @include small {
       top: 64px;
       width: 100%;
       padding: 12px;
@@ -208,22 +204,18 @@ Layout: Header
     outline: 0;
     border: 0;
     padding: 0;
-    margin: 6px 0;
+    margin: 4px 0;
     line-height: 1;
     background-color: transparent;
     transition: all .3s ease;
     @include medium {
-      margin: 4px 0;
-    }
-    @include small {
-      margin: 3px 0;
+      margin: 0;
     }
     &:hover {
       color: color(primary);
     }
     i {
       @include font-size(24);
-      line-height: 1;
     }
   }
   &__global-nav {
@@ -322,6 +314,9 @@ Layout: Header
     height: 180px;
     padding-top: 64px;
     visibility: hidden;
+    @include small {
+      padding-top: 48px;
+    }
     .show-search & {
       visibility: visible;
     }
@@ -335,7 +330,6 @@ Layout: Header
       transform: translateY(-24px);
       transition: all 0.3s ease 0s;
       @include small {
-        display: block;
         .show-menu & {
           transform: translateX(-24px);
         }

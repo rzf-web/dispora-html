@@ -37,7 +37,7 @@
         ]
       },
       {
-        title: 'Kontak Kami :',
+        title: 'Kontak Kami',
         list: [
           {
             icon: 'phone',
@@ -75,7 +75,7 @@
             | !{footer.about.desc}
       .footer__nav
         each val in footer.nav
-          .footer__item
+          .footer__item.js-footer-acc
             h3.footer__title
               | !{val.title}
             if val.list
