@@ -27,8 +27,12 @@
     float: left;
     max-width: 616px;
     font-size: 0;
+    @include large {
+      max-width: 320px;
+    }
     @include medium {
       float: none;
+      max-width: initial;
       margin-bottom: 24px;
     }
   }
@@ -37,7 +41,7 @@
     vertical-align: top;
     text-decoration: none;
     margin-right: 120px;
-    @include medium {
+    @include large {
       display: block;
       margin-right: 0;
       margin-bottom: 24px;
@@ -76,6 +80,9 @@
     max-width: 280px;
     @include font-size(16);
     margin-bottom: 0;
+    @include medium {
+      max-width: initial;
+    }
     @include x-small {
       @include font-size(14);
     }
@@ -112,7 +119,7 @@
         @include small {
           &::before,
           &::after {
-            content: '';
+            content: "";
             display: block;
             position: absolute;
             top: 14px;
@@ -120,17 +127,17 @@
             height: 2px;
             z-index: zi(footer-title);
             background-color: color(white);
-            transition: all .4s ease .2s;
+            transition: all 0.4s ease 0.2s;
           }
           &::before {
             right: 12px;
-            border-radius: .5px 0 0 .5px;
+            border-radius: 0.5px 0 0 0.5px;
             transform-origin: 100% 100%;
             transform: rotate(40deg) scaleY(1.1);
           }
           &::after {
             right: 0;
-            border-radius: 0 .5px .5px 0;
+            border-radius: 0 0.5px 0.5px 0;
             transform-origin: 0% 100%;
             transform: rotate(-40deg) scaleY(1.1);
           }
@@ -155,7 +162,7 @@
           &__item {
             opacity: 1;
             transform: none;
-            transition: all .35s ease .3s;
+            transition: all 0.35s ease 0.3s;
           }
         }
       }

@@ -4,7 +4,11 @@
 
 $z-index: (
   header: 9,
+  header-inner: 2,
+  header-bg-before: -1,
   header-search: -1,
+  header-curtain: 1,
+  header-layout: 1,
   header-search-before: 1,
   header-search-box: 1,
   header-dropdown-menu: 2,
@@ -13,6 +17,7 @@ $z-index: (
   hero-banner-tag: 1,
   hero-banner-card-btn: 1,
   card-link: 2,
+  card-badge: 2,
   card-overlay-before: 1,
   card-overlay-txt: 1,
   popup: 10,

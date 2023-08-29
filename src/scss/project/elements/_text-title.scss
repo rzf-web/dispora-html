@@ -9,6 +9,9 @@
   display: inline-block;
   @include font-size(32);
   margin-bottom: 0;
+  @include small {
+    @include font-size(24);
+  }
   &__bar {
     display: block;
     position: absolute;
@@ -17,8 +20,14 @@
     width: 24px;
     height: 2px;
     background-color: color(primary);
+    @include small {
+      width: 16px;
+    }
+    @include x-small {
+      display: none;
+    }
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: -24px;
@@ -27,9 +36,13 @@
       height: 2px;
       background-color: color(secondary);
       border-radius: 8px 0 0 8px;
+      @include small {
+        left: -16px;
+        width: 16px;
+      }
     }
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       bottom: 0;
@@ -38,6 +51,10 @@
       height: 2px;
       background-color: color(tertiary);
       border-radius: 0 8px 8px 0;
+      @include small {
+        left: 16px;
+        width: 16px;
+      }
     }
   }
   &--center {
@@ -46,14 +63,17 @@
         top: 50%;
         left: -72px;
         transform: translateY(-50%);
+        @include small {
+          left: -64px;
+        }
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
         }
         &::after {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           top: 50%;
@@ -62,15 +82,24 @@
         &:last-child {
           left: auto;
           right: -72px;
+          @include small {
+            right: -64px;
+          }
           &::before {
             left: auto;
             right: -24px;
             border-radius: 0 8px 8px 0;
+            @include small {
+              right: -16px;
+            }
           }
           &::after {
             left: auto;
             right: 24px;
             border-radius: 8px 0 0 8px;
+            @include small {
+              right: 16px;
+            }
           }
         }
       }

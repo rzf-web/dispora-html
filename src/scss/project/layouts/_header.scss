@@ -24,7 +24,7 @@ Layout: Header
   }
   &__inner {
     position: relative;
-    z-index: 2;
+    z-index: zi(header-inner);
     @include clearfix;
     &::before {
       @include medium {
@@ -33,7 +33,7 @@ Layout: Header
         width: 100%;
         height: 100vh;
         position: fixed;
-        top: 72px;
+        top: 0;
         right: 0;
         bottom: 0;
         z-index: zi(header-bg-before);
@@ -47,17 +47,14 @@ Layout: Header
           transition-delay: 0.2s;
         }
       }
-      @include small {
-        top: 64px;
-      }
     }
   }
   &__curtain {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: zi(header-curtain);
     width: 100%;
     height: 100vh;
     background-color: color(grey, 3);
@@ -87,17 +84,15 @@ Layout: Header
     position: fixed;
     top: 0;
     left: 0;
-    z-index: zi(header-search-before);
+    z-index: zi(header-layout);
     width: 100%;
     opacity: 0;
     visibility: hidden;
     background-color: color(white);
-    transform: scaleX(0);
     transform-origin: top;
     transform: translateY(-100%);
-    transition: all 0.35s ease .15s;
-    @include small {
-      height: 100%;
+    transition: all 0.35s ease 0.15s;
+    @include medium {
       .show-menu & {
         transform: translateX(-100%);
       }
@@ -189,7 +184,7 @@ Layout: Header
     @include font-size(16);
     padding: 8px;
     cursor: pointer;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     @include remove-tap-highlight;
     @include medium {
       @include font-size(24);
@@ -207,12 +202,15 @@ Layout: Header
     margin: 4px 0;
     line-height: 1;
     background-color: transparent;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     @include medium {
       margin: 0;
     }
     &:hover {
       color: color(primary);
+      @include medium {
+        color: color(black, 1);
+      }
     }
     i {
       @include font-size(24);
@@ -241,7 +239,7 @@ Layout: Header
         z-index: 1;
         transform: translateX(16px);
         background-color: color(white);
-        transition: all 0.5s ease .3s;
+        transition: all 0.5s ease 0.3s;
       }
     }
     &__content {
@@ -288,7 +286,7 @@ Layout: Header
           transform: none;
           opacity: 1;
           visibility: visible;
-          transition-delay: .3s;
+          transition-delay: 0.3s;
           @include medium {
             transition-delay: 0s;
           }
@@ -298,7 +296,7 @@ Layout: Header
             transform: none;
             opacity: 1;
             visibility: visible;
-            transition-delay: .3s;
+            transition-delay: 0.3s;
           }
         }
       }
@@ -509,6 +507,12 @@ Layout: Header
         &:hover {
           color: color(tertiary);
         }
+        .show-menu & {
+          color: color(black, 1);
+          &:hover {
+            color: color(primary);
+          }
+        }
         .global-nav-show &,
         .header-on-scroll &,
         .show-search & {
@@ -520,6 +524,9 @@ Layout: Header
       }
       &__icon {
         color: color(white);
+        .show-menu & {
+          color: color(black, 1);
+        }
         &:hover {
           color: color(tertiary);
         }
@@ -529,6 +536,9 @@ Layout: Header
           color: color(black, 1);
           &:hover {
             color: color(primary);
+            @include medium {
+              color: color(black, 1);
+            }
           }
         }
       }
@@ -549,6 +559,9 @@ Layout: Header
     .burger-menu {
       &__bar {
         background-color: color(white);
+        .show-menu & {
+          background-color: color(black, 1);
+        }
         .global-nav-show &,
         .header-on-scroll &,
         .show-search & {
