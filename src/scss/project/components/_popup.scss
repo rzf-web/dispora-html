@@ -12,8 +12,8 @@
   background-color: color(white);
   transform: translateY(100%);
   transition: all 0.45s cubic-bezier(0.57, 0.07, 0.27, 0.91);
-  transition-delay: .3s;
-  @include scroll('y', 'touch', 'show');
+  transition-delay: 0.3s;
+  @include scroll("y", "touch", "show");
   .show-popup & {
     transform: none;
     transition-delay: 0s;
@@ -36,11 +36,23 @@
     @include remove-tap-highlight;
     opacity: 0;
     transform: translateY(16px) rotate(180deg);
-    transition: all .45s ease;
+    transition: all 0.45s ease;
+    @include medium {
+      top: 32px;
+      right: 32px;
+    }
+    @include small {
+      top: 24px;
+      right: 24px;
+    }
+    @include x-small {
+      top: 16px;
+      right: 16px;
+    }
     i {
       display: block;
       @include font-size(16);
-      transition: all .35s ease;
+      transition: all 0.35s ease;
       &:hover {
         transform: rotate(90deg);
       }
@@ -54,6 +66,12 @@
   &__wrapper {
     position: relative;
     padding: 80px 0;
+    @include medium {
+      padding: 72px 0;
+    }
+    @include small {
+      padding: 64px 0;
+    }
   }
   &__content {
     position: relative;
@@ -63,11 +81,20 @@
   &__left {
     float: left;
     width: 33.33333%;
+    @include medium {
+      float: none;
+      width: 100%;
+    }
   }
   &__right {
     float: right;
     width: 66.66666%;
     padding-left: 40px;
+    @include medium {
+      float: none;
+      width: 100%;
+      padding-left: 0;
+    }
   }
   &__head {
     top: 80px;
@@ -79,7 +106,16 @@
     overflow: hidden;
     opacity: 0;
     transform: translateY(16px);
-    transition: all .5s ease;
+    transition: all 0.5s ease;
+    @include medium {
+      position: relative;
+      top: 0;
+      margin-bottom: 24px;
+    }
+    @include small {
+      max-width: 340px;
+      min-height: initial;
+    }
     .show-popup & {
       opacity: 1;
       transform: none;
@@ -89,9 +125,22 @@
   &__body {
     opacity: 0;
     transform: translateY(16px);
-    transition: all .5s ease;
-    h1, h2, h3, h4, h5, h6 {
+    transition: all 0.5s ease;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include font-size(24);
       font-family: ff(title);
+      @include medium {
+        @include font-size(20);
+      }
+      @include small {
+        @include font-size(18);
+        margin-bottom: 8px;
+      }
     }
     .show-popup & {
       opacity: 1;
@@ -102,9 +151,18 @@
   &__img {
     width: 100%;
     height: 100%;
+    @include small {
+      height: 460px;
+    }
     &__el {
       display: block;
       margin: 0 auto;
+      @include small {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: top;
+      }
     }
   }
   &__txt {
@@ -121,10 +179,12 @@
   &__name {
     @include font-size(20);
     margin-bottom: 0;
+    @include x-small {
+      @include font-size(18);
+    }
   }
   &__position {
     @include font-size(16);
     margin-bottom: 0;
   }
-
 }

@@ -89,10 +89,10 @@
   }
   &__copyright {
     font-family: ff(title);
-    @include font-size(16);
+    @include font-size(14);
     margin-bottom: 0;
     @include x-small {
-      @include font-size(14);
+      @include font-size(12);
     }
   }
   &__nav {

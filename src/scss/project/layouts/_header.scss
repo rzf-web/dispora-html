@@ -133,7 +133,7 @@ Layout: Header
       top: 72px;
       right: 0;
       bottom: 0;
-      z-index: zi(header-menu);
+      z-index: zi(header-nav);
       display: block;
       width: 100%;
       padding: 32px;
@@ -223,7 +223,7 @@ Layout: Header
       top: 0;
       left: 0;
       right: 0;
-      z-index: -1;
+      z-index: zi(header-global-nav-menu);
       overflow: hidden;
       width: 100%;
       padding-top: 104px;
@@ -268,8 +268,11 @@ Layout: Header
     }
     &__title {
       font-family: ff(title);
-      @include font-size(16);
-      margin-bottom: 8px;
+      @include font-size(18);
+      margin-bottom: 12px;
+      @include x-small {
+        @include font-size(16);
+      }
     }
     &__link {
       display: inline-block;
@@ -279,6 +282,9 @@ Layout: Header
       font-weight: fw(600);
       padding: 8px 0;
       @include remove-tap-highlight;
+      @include x-small {
+        padding: 4px 0;
+      }
     }
     &--show {
       #{$gn} {

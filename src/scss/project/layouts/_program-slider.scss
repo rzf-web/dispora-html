@@ -7,11 +7,18 @@
   height: 300px;
   padding: 56px 0;
   background-color: color(grey, 1);
+  @include large {
+    height: auto;
+  }
   &__container {
     position: absolute;
     left: calc(50% - 560px);
     right: 0;
-    z-index: 2;
+    z-index: zi(program-slider-container);
+    @include large {
+      position: static;
+      margin-right: -32px;
+    }
   }
   &__content {
     position: relative;
@@ -35,11 +42,14 @@
       border-radius: 0;
       margin-left: -24px;
       padding-left: 24px;
-      @include scroll('x', 'touch', 'hide');
+      @include scroll("x", "touch", "hide");
     }
     &.owl-carousel {
       .owl-stage {
         position: static;
+        @include large {
+          position: relative;
+        }
       }
       .owl-item {
         .program-card {

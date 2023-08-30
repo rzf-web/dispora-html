@@ -22,10 +22,12 @@
     width: 200px;
     height: 200px;
     margin: 0 auto 24px;
+    @include medium {
+      margin-bottom: 16px;
+    }
     @include small {
       width: 100%;
       height: 100%;
-      margin-bottom: 16px;
     }
     @include x-small {
       margin-bottom: 8px;
@@ -47,12 +49,15 @@
     @include font-size(20);
     @include multiline-ellipsis(2);
     transition: all 0.3s ease;
+    @include medium {
+      @include font-size(18);
+      margin-bottom: 8px;
+    }
     @include small {
       @include font-size(16);
     }
     @include x-small {
       @include font-size(14);
-      margin-bottom: 8px;
     }
   }
   &__position {

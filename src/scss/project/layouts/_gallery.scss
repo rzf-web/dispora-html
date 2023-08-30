@@ -5,6 +5,7 @@
 .gallery {
   $g: &;
   padding: 64px 0 32px;
+  overflow: hidden;
   &__head {
     text-align: center;
     margin-bottom: 36px;
@@ -13,7 +14,7 @@
     font-size: 0;
     margin-left: -12px;
     margin-right: -12px;
-    @include scroll('x');
+    @include scroll("x");
     #{$g} {
       &-card {
         display: inline-block;
@@ -37,10 +38,16 @@
           top: 50%;
           @include font-size(48);
           color: color(primary);
-          transition: all .3s ease;
+          transition: all 0.3s ease;
         }
         .owl-prev {
           left: -56px;
+          @include large {
+            left: -32px;
+          }
+          @include medium {
+            left: -24px;
+          }
           &.disabled {
             opacity: 0;
             transform: translateX(-16px);
@@ -48,6 +55,12 @@
         }
         .owl-next {
           right: -56px;
+          @include large {
+            right: -32px;
+          }
+          @include medium {
+            right: -24px;
+          }
           &.disabled {
             opacity: 0;
             transform: translateX(16px);

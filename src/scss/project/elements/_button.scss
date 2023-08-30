@@ -60,8 +60,11 @@
   color: color(primary);
   background-color: transparent;
   @include remove-tap-highlight;
-  @include x-small {
+  @include medium {
     @include font-size(16);
+  }
+  @include x-small {
+    @include font-size(14);
   }
   &:hover {
     i {
@@ -74,6 +77,9 @@
     margin-left: 8px;
     @include font-size(24);
     transition: all 0.3s ease;
+    @include x-small {
+      @include font-size(16);
+    }
   }
   span {
     display: inline-block;

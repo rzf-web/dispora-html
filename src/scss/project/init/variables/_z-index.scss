@@ -6,9 +6,11 @@ $z-index: (
   header: 9,
   header-inner: 2,
   header-bg-before: -1,
-  header-search: -1,
   header-curtain: 1,
   header-layout: 1,
+  header-nav: 1,
+  header-global-nav-menu: -1,
+  header-search: -1,
   header-search-before: 1,
   header-search-box: 1,
   header-dropdown-menu: 2,
@@ -22,4 +24,5 @@ $z-index: (
   card-overlay-txt: 1,
   popup: 10,
   popup-bg: 9,
+  program-slider-container: 2,
 );

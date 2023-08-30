@@ -16,7 +16,8 @@
               p.hero-banner__tag
                 | Berita Terkini
               h2.hero-banner__title
-                | !{val.title}
+                a.hero-banner__link(href=val.to)
+                  | !{val.title}
               p.hero-banner__desc
                 | !{val.desc}
               p.hero-banner__date

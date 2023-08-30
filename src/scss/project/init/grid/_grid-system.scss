@@ -36,5 +36,8 @@
     transform: scale(0.95) translateY(-80px);
     transition: all 0.45s ease;
     transition-delay: 0s;
+    @include medium {
+      transform: none;
+    }
   }
 }
