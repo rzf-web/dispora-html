@@ -86,6 +86,7 @@ const DEV_PATH = {
         `${SRC}/scripts/vendors/owl.carousel.min.js`,
         `${SRC}/scripts/vendors/scroll-lock.js`,
         `${SRC}/scripts/vendors/scrollreveal.js`,
+        `${SRC}/scripts/vendors/simple-lightbox.min.js`,
         `${SRC}/scripts/vendors/*.js`,
       ],
       concat: "vendor.js",

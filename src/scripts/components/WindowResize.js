@@ -4,10 +4,7 @@
 --------------------------------------------------------------------------------- */
 
 // --- components
-import {
-  Header,
-  Footer,
-} from 'components';
+import { Header, Footer, Program, Gallery } from "components";
 
 // --- WindowResize
 const WindowResize = (() => {
@@ -21,7 +18,7 @@ const WindowResize = (() => {
       _rtime = new Date();
       if (_timeout === false) {
         _timeout = true;
-        $('body').addClass('hold-transition');
+        $("body").addClass("hold-transition");
         setTimeout(handleResizeEnd, _delta);
       }
     });
@@ -39,7 +36,9 @@ const WindowResize = (() => {
       Header.destroyGlobalNavigation();
       Footer.footerSticky();
       Footer.destroyAccordion();
-      $('body').removeClass('hold-transition');
+      Program.destroyCarousel();
+      Gallery.destroyCarousel();
+      $("body").removeClass("hold-transition");
     }
   };
 
@@ -50,7 +49,7 @@ const WindowResize = (() => {
 
   // --- return
   return {
-    init
+    init,
   };
 })();
 

@@ -65,6 +65,12 @@
     left: 0;
     z-index: zi(card-overlay-txt);
     padding: 32px;
+    @include medium {
+      padding: 24px;
+    }
+    @include small {
+      padding: 16px;
+    }
   }
   &__title {
     font-family: ff(title);
@@ -72,6 +78,13 @@
     color: color(white);
     margin-bottom: 0;
     transition: all 0.3s ease;
+    @include multiline-ellipsis(3);
+    @include medium {
+      @include font-size(16);
+    }
+    @include x-small {
+      @include font-size(14);
+    }
   }
   &__badge {
     position: absolute;
@@ -86,5 +99,17 @@
     color: color(white);
     padding: 6px 12px;
     background-color: color(secondary);
+    @include medium {
+      top: 24px;
+      left: 24px;
+      @include font-size(14);
+    }
+    @include small {
+      top: 24px;
+      left: 24px;
+    }
+    @include x-small {
+      @include font-size(12);
+    }
   }
 }

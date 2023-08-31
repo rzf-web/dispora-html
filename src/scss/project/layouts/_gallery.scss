@@ -6,21 +6,67 @@
   $g: &;
   padding: 64px 0 32px;
   overflow: hidden;
+  @include medium {
+    padding: 48px 0 24px;
+  }
+  @include small {
+    padding: 32px 0 16px;
+  }
   &__head {
     text-align: center;
     margin-bottom: 36px;
+    @include medium {
+      margin-bottom: 32px;
+    }
+    @include small {
+      margin-bottom: 24px;
+    }
   }
   &__body {
     font-size: 0;
     margin-left: -12px;
     margin-right: -12px;
     @include scroll("x");
+    @include medium {
+      padding-left: 32px;
+      margin-left: -32px;
+      margin-right: -32px;
+    }
+    @include small {
+      padding-left: 24px;
+      margin-left: -24px;
+      margin-right: -24px;
+    }
+    @include x-small {
+      padding-left: 16px;
+      margin-left: -16px;
+      margin-right: -16px;
+    }
     #{$g} {
       &-card {
         display: inline-block;
         vertical-align: top;
         width: 50%;
         padding: 12px;
+        @include medium {
+          width: 320px;
+          padding: 0 24px 0 0;
+          &:last-child {
+            padding-right: 32px;
+          }
+        }
+        @include small {
+          width: 280px;
+          &:last-child {
+            padding-right: 24px;
+          }
+        }
+        @include x-small {
+          padding-right: 16px;
+          &:last-child {
+            padding-right: 16px;
+          }
+        }
       }
     }
     &.owl-carousel {

@@ -282,6 +282,9 @@ Layout: Header
       font-weight: fw(600);
       padding: 8px 0;
       @include remove-tap-highlight;
+      &:hover {
+        text-decoration: underline;
+      }
       @include x-small {
         padding: 4px 0;
       }
